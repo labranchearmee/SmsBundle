@@ -1,9 +1,10 @@
 parameters:
-    sms.class:  Brickstorm\SmsBundle\DependencyInjection\Sms
-    facebook.vendor: 650
+    sms.class:  Brickstorm\SmsBundle\Service\Sms
+    sms.transport.class: Brickstorm\SmsBundle\Transport\SmsFactor
 
 services:
-    sms:
+    brickstorm.smstransport:
+        class:        %sms.transport.class%
+    brickstorm.sms:
         class:        %sms.class%
-        #arguments:    [me]
-        
+        arguments:    [@brickstorm.smstransport]
