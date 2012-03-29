@@ -28,7 +28,7 @@ class SmsFactor
 		$this->sender = $sender;
 		$this->message = $message;
 		$this->flash = $flash;
-		$this->inputgsmnumbers = is_array($inputgsmnumbers) ? $inputgsmnumbers : array($inputgsmnumbers);
+		$this->inputgsmnumbers = is_array($inputgsmnumbers) ? $inputgsmnumbers : array(trim($inputgsmnumbers));
 		$this->type = $type;
 		$this->bookmark = $bookmark;
 
@@ -70,7 +70,6 @@ class SmsFactor
 		curl_close($ch);
 		return $response;
 	}
-
 }
 
 ?>
